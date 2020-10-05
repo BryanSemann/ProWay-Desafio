@@ -1,3 +1,4 @@
+Create database desafio;
 use desafio;
 Create table Basquete (
 	 jogo int(4) NOT NULL primary key auto_increment,

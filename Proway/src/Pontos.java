@@ -1,5 +1,6 @@
 
 public class Pontos {
+	// esta classe só recebe os dados do banco para serem alterados
 	private int jogo,placar, pts_max, pts_min, pts_recMax, pts_recMin;
 
 	public int getJogo() {
