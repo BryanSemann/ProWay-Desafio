@@ -7,7 +7,7 @@ public class Calc {
     public void verifica(int n) {
 
         if (n >= 0 && n <= 1000) {
-            for (Pontos p : crud.read("SELECT * FROM Basquete ORDER BY jogo DESC LIMIT 1;")) {
+            for (Pontos p : crud.read("SELECT * FROM Basquete ORDER BY jogo DESC LIMIT 1;")) { // verifica a ultima linha de dados do banco
             	jogo = p.getJogo();
                 placar = p.getPlacar();
                 maximoTemporada = p.getPts_max();
@@ -17,7 +17,7 @@ public class Calc {
             }
             Pontos p = new Pontos();
 
-            if (n > maximoTemporada) {
+            if (n > maximoTemporada) { // verificando se o valor dado é maior que o anterior
                 p.setPts_max(n);
                 p.setPts_recMax(recordeMaximo + 1);
             } else {
@@ -25,7 +25,7 @@ public class Calc {
                 p.setPts_recMax(recordeMaximo);
             }
 
-            if (n < minimoTemporada && minimoTemporada !=0) {
+            if (n < minimoTemporada && minimoTemporada !=0) { // verificando se o valor dado é menor que o anterior
                 if (minimoTemporada == 0) {
                     p.setPts_min(n);
                     p.setPts_recMin(recordeMinimo);
@@ -43,7 +43,7 @@ public class Calc {
             }
 
             p.setPlacar(n);
-            crud.create(p);
+            crud.create(p); // enviando dados para a tabela
         } else {
             JOptionPane.showMessageDialog(null, "Numero invalido");
         }

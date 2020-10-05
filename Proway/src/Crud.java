@@ -40,30 +40,24 @@ public class Crud {
 
 	public List<Pontos> read(String sql) {
 
-		// Declarando variaveis para Conexao
+		// Variaveis para Conexao
 		Connection connection;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Pontos> pontos = new ArrayList<>();
 
-		// Iniciando Conexao
 		connection = con.abrirConexao();
 
-		// Tenta iniciar a conexão com PreparedStatemend pstmt
 		try {
 
-			// Inicia PreparedStatement para executar SQL para o banco
+			// PreparedStatement para executar SQL no BD
 			pstmt = connection.prepareStatement(sql);
 
-			// Recebe SQL para executar no banco e pegar resultado
 			rs = pstmt.executeQuery();
 
 			// Enquanto existir próximo resultado da pesquisa no banco
 			while (rs.next()) {
 
-				// Cria um novo objeto Pontos e adiciona atributos do banco nos
-				// respectivos
-				// campos correspondidos
 				Pontos p = new Pontos();
 
 				p.setJogo(rs.getInt("jogo"));
